@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <h2 style="text-align: center; color: white;">Mano Fabrics</h2>
+
+    <ion-buttons slot="end">
+      <ion-fab>
+        <ion-fab-button style="--background: #ff2a34 ;" (click)="openCart()" #cart>
+          <div class="cart-length">{{ cartItemCount | async }}</div>
+          <ion-icon name="cart" class="cart-icon"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+  <h1 class="title">Videos</h1>
+
+  <div class="cart-items">
+
+    <ion-card mode="ios" *ngFor="let p of products">
+      <!-- <ion-card-content > -->
+        <ion-card-header>
+          <ion-card-title>{{ p.name }}</ion-card-title>
+        </ion-card-header>
+        <iframe width="100%" height="430" [src]="p.Link"
+            frameborder="0" allowfullscreen></iframe>     
+           
+        <ion-col size="4" class="ion-text-right">
+          <h1>
+            <h2>{{p.price}}</h2>
+            <ion-button style="--background: #ee1b24 ;" fill="clear" (click)="addToCart(p)">
+              <ion-icon style="color:white;" name="add"></ion-icon>
+              <h2 style="color:white;" >
+                Add to Cart 
+              </h2>
+            </ion-button>
+          </h1>
+        </ion-col>
+      <!-- </ion-card-content> -->
+    </ion-card>
+
+  </div>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="block" class="main-button" routerLink="/checkout" style="--background: #ee1b24 ;" routerDirection="forward">Continue
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

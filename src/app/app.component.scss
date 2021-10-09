@@ -1,0 +1,34 @@
+ion-menu {
+  --width: 100%;
+  --background:#ee1b24 ;
+}
+
+.main-list {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-list {
+    width: 100%;
+
+    ion-item {
+      font-size: 18px;
+      font-weight: 100;
+    }
+
+    .selected {
+      border-left: 5px solid #ee1b24;
+      --color: #ee1b24;
+      
+    }
+  }
+
+  ion-button {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 24px;
+    --ripple-color: transparent;
+  }
+}

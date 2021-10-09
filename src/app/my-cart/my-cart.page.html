@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <h2 style="text-align: center; color: white;">Mano Fabrics</h2>
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <h1 class="title">Cart</h1>
+
+  <div  class="cart-items">
+    <ion-card *ngFor="let product of cart" mode="ios">
+      <ion-card-content>
+      
+        <div class="item-info">
+          <p>{{product.name}}</p>
+          <p>{{product.price}}</p>
+
+          <div class="qty-selector">
+            <ion-button (click)="decreaseCartItem(product)" fill="clear">-</ion-button>
+            <ion-label>{{ product.quantity }}</ion-label>
+            <ion-button (click)="increaseCartItem(product)" fill="clear">+</ion-button>
+          </div>
+        </div>
+        <ion-col size="2" offset="5">
+          <ion-button
+            color="medium"
+            fill="clear"
+            (click)="removeCartItem(product)"
+          >
+            <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="block" class="main-button" style="--background: #ee1b24 ;" routerLink="/checkout" routerDirection="forward">Continue</ion-button>
+  </ion-toolbar>
+</ion-footer>
