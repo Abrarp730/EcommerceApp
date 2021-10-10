@@ -1,8 +1,9 @@
+
+<!--
 # Ionic ecommerce app UI
 
 ## Pages Included
-
-<!-- 1. Welcome Screen
+ 1. Welcome Screen
 2. Login/Register Screens
 3. Home Page
 4. Profile Page
